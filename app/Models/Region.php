@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Region extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['name', 'is_active'];
+
+    public function serviceRequests()
+    {
+        return $this->hasMany(ServiceRequest::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+}
